@@ -1,0 +1,38 @@
+﻿@model LoginRequestModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link rel="stylesheet" href="~/css/login.css" />
+</head>
+<body>
+    <div class="adminForm">
+        <div class="card">
+            <h1>Prihlásenie</h1>
+            <hr class="hrko" />
+            <form method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <input asp-for="Email" class="dm-input" placeholder="Zadajte email" type="email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+                <input asp-for="Password" class="dm-input" type="password" placeholder="Zadajte heslo" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+                <button type="submit" class="createAdmin_submit">Prihlásiť sa</button>
+                <div class="form-group">
+                    <p>
+                        <a asp-action="ForgotPassword">Forgot your password?</a>
+                    </p>
+                    <p>
+                        <a asp-action="Register">Register as a new user?</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

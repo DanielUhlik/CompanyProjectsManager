@@ -1,0 +1,78 @@
+<template>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Názov</th>
+                    <th scope="col">Skratka</th>
+                    <th scope="col">Zákazník</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(project, index) in allProjects">
+                    <th scope="row">{{project.id}}</th>
+                    <td>{{project.name}}</td>
+                    <td>{{project.abbreviation}}</td>
+                    <td>{{project.customer}}</td>
+                    <td>
+                        <button class="btn btn-primary" data-target="#create-edit-dialog" data-toggle="modal" @click="editModal(project.id)">Upraviť</button>
+                        <button class="btn btn-danger" data-target="#delete-dialog" data-toggle="modal" @click="deleteProject(index)">Vymazať</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <!--Modals-->
+        <!--Delete-->
+        <div class="modal" tabindex="-1" role="dialog" id="delete-dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Vymazať</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="delete-dialog-close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Vymazať projekt {{projectModel.name}} ?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" @click="confirmDelete()">Vymazať</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Create/Edit-->
+        <div class="modal" tabindex="-1" role="dialog" id="create-edit-dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" v-if="isEditMode">Upraviť</h5>
+                        <h5 class="modal-title" v-else>Vytvoriť</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="edit-create-dialog-close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input name="Name" v-model="projectModel.name" placeholder="Name" />
+                        <input name="Abbreviation" v-model="projectModel.abbreviation" placeholder="Abbreviation" />
+                        <input name="Customer" v-model="projectModel.customer" placeholder="Customer" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" @click="edit()" v-if="isEditMode">Upraviť</button>
+                        <button type="button" class="btn btn-primary" @click="create()" v-else>Vytvoriť</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="fab" id="masterfab" data-target="#create-edit-dialog" data-toggle="modal" @click="createModal()"><span>+</span></div>
+
+    </div>
+</template>
+<script src="./home.ts"/>

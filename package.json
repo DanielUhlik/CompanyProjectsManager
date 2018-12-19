@@ -1,0 +1,33 @@
+{
+  "name": "CompanyProjectsManager",
+  "private": true,
+  "version": "0.0.0",
+  "devDependencies": {
+    "@types/webpack-env": "^1.13.6",
+    "aspnet-webpack": "^2.0.3",
+    "awesome-typescript-loader": "^3.5.0",
+    "bootstrap": "^3.3.6",
+    "css-loader": "^0.25.0",
+    "event-source-polyfill": "^0.0.7",
+    "extract-text-webpack-plugin": "^2.0.0-rc",
+    "file-loader": "^0.9.0",
+    "isomorphic-fetch": "^2.2.1",
+    "jquery": "^3.3.1",
+    "style-loader": "^0.13.1",
+    "ts-loader": "^5.2.1",
+    "typescript": "^3.1.1",
+    "url-loader": "^0.5.7",
+    "vue": "^2.5.17",
+    "vue-loader": "^15.4.2",
+    "vue-property-decorator": "^7.1.1",
+    "vue-router": "^3.0.1",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^2.7.0",
+    "webpack-hot-middleware": "^2.24.2"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "source-map-support": "^0.5.9",
+    "vue-class-component": "^6.2.0"
+  }
+}
