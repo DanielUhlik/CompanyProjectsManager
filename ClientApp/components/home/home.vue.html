@@ -58,9 +58,19 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <input name="Name" v-model="projectModel.name" placeholder="Name" />
-                        <input name="Abbreviation" v-model="projectModel.abbreviation" placeholder="Abbreviation" />
-                        <input name="Customer" v-model="projectModel.customer" placeholder="Customer" />
+                        <div class="form-group">
+                            <label for="name">Názov</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Name" v-model="projectModel.name">
+                        </div>
+                        <div class="form-group">
+                            <label for="abbreviation">Skratka</label>
+                            <input type="text" class="form-control" id="abbreviation" name="abbreviation" placeholder="" v-model="projectModel.abbreviation">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="customer">Klient</label>
+                            <input type="text" class="form-control" id="customer" name="customer" placeholder="Klient" v-model="projectModel.customer">
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" @click="edit()" v-if="isEditMode">Upraviť</button>
